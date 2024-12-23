@@ -1,5 +1,8 @@
 using BlazorMachinePark.Components;
+using BlazorMachinePark.Contracts.Repositories;
+using BlazorMachinePark.Contracts.Services;
 using BlazorMachinePark.Data;
+using BlazorMachinePark.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +15,10 @@ builder.Services.AddDbContextFactory<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration["ConnectionStrings:DefaultConnection"]
         ));
+
+
+builder.Services.AddScoped<IMachineRepository, MachineRepository>();
+//builder.Services.AddScoped<IMachineService, MachineService>();
 
 var app = builder.Build();
 
