@@ -17,10 +17,10 @@ namespace BlazorMachinePark.Shared.Domain
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(50)]
-        public string Country { get; set; }
+        public Country Country { get; set; }
+        public int CountryId { get; set; }
 
         // Navigation property for one-to-many relationship 
-        public ICollection<Machine> Machines { get; set; }
+        public ICollection<Machine> Machines { get; set; } = new List<Machine>();
     }
 }
