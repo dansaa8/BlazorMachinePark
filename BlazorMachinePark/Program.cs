@@ -3,6 +3,7 @@ using BlazorMachinePark.Contracts.Repositories;
 using BlazorMachinePark.Contracts.Services;
 using BlazorMachinePark.Data;
 using BlazorMachinePark.Repositories;
+using BlazorMachinePark.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +19,7 @@ builder.Services.AddDbContextFactory<AppDbContext>(options =>
 
 
 builder.Services.AddScoped<IMachineRepository, MachineRepository>();
-//builder.Services.AddScoped<IMachineService, MachineService>();
+builder.Services.AddScoped<IMachineService, MachineService>();
 
 var app = builder.Build();
 
