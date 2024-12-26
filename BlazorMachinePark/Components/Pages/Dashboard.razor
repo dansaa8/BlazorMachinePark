@@ -22,16 +22,35 @@ else
         @foreach (var machine in Machines)
         {
             <tr>
-                <td>@machine.Id</td>
                 <td>
-                    <span>@machine.Location.CityName</span>
-                    <span>@machine.Location.CountryName</span>
+                    <span class="h5">
+                        <strong>@machine.Id</strong>
+                    </span>
                 </td>
-                <td>    
-                    <span>@machine.MachineType.Name</span>
+                <td>
+                    <span class="h5">
+                        <strong>@machine.Location.CityName</strong>
+                    </span>
+                    <br/>
+                    <span class="h6">@machine.Location.CountryName</span>
+                </td>
+                <td>
+                    <span class="h5">
+                        <strong>@machine.MachineType.Name</strong>
+                    </span>
+                    <br/>
                     <span>@machine.MachineType.Description</span>
                 </td>
-                <td>@machine.IsRunning</td>
+                <td>
+                    @if (machine.IsRunning)
+                    {
+                        <div type="button" class="btn btn-outline-success">Online</div>
+                    }
+                    else
+                    {
+                        <div type="button" class="btn btn-outline-danger">Offline</div>
+                    }
+                </td>
             </tr>
         }
 
