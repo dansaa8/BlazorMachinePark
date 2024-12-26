@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,8 +13,8 @@ namespace BlazorMachinePark.Shared.Domain
         public Guid Id { get; set; } // GUID as pk
         public bool IsRunning { get; set; }
 
-        public Location Location { get; set; } // Nav-prop
-        public int LocationId { get; set; }
+        public City City { get; set; } // Nav-prop
+        public int CityId { get; set; }
 
         public MachineType MachineType { get; set; } // Nav-prop
         public int MachineTypeId { get; set; }

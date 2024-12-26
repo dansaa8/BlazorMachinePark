@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlazorMachinePark.Shared.Domain
 {
-    public class Location
+    public class City
     {
         [Key]
         public int Id { get; set; }

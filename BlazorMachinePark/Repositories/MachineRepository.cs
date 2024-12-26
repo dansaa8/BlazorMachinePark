@@ -16,8 +16,13 @@ namespace BlazorMachinePark.Repositories
 
         public async Task<IEnumerable<Machine>> GetAllMachines()
         {
-            return await _appDbContext.Machines.ToListAsync();
+            return await _appDbContext.Machines
+                .Include(m => m.MachineType)
+                .Include(m => m.City)
+                .ThenInclude(m => m.Country)
+                .ToListAsync();
         }
+
         public async Task<Machine> GetMachineById(Guid machineId)
         {
             return await _appDbContext.Machines
@@ -35,15 +40,16 @@ namespace BlazorMachinePark.Repositories
         {
             var foundMachine = await _appDbContext.Machines.FirstOrDefaultAsync(m => m.Id.Equals(machine.Id));
 
-            if (foundMachine != null) 
+            if (foundMachine != null)
             {
                 foundMachine.IsRunning = machine.IsRunning;
-                foundMachine.Location = machine.Location;
+                foundMachine.City = machine.City;
                 foundMachine.MachineType = machine.MachineType;
 
                 await _appDbContext.SaveChangesAsync();
                 return foundMachine;
             }
+
             return null;
         }
 
@@ -53,7 +59,7 @@ namespace BlazorMachinePark.Repositories
 
             if (foundMachine is null) return;
 
-            _appDbContext.Machines.Remove(foundMachine);    
+            _appDbContext.Machines.Remove(foundMachine);
             await _appDbContext.SaveChangesAsync();
         }
 

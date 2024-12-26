@@ -22,47 +22,7 @@ namespace BlazorMachinePark.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BlazorMachinePark.Shared.Domain.Country", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Countries");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Sweden"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Norway"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Denmark"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Finland"
-                        });
-                });
-
-            modelBuilder.Entity("BlazorMachinePark.Shared.Domain.Location", b =>
+            modelBuilder.Entity("BlazorMachinePark.Shared.Domain.City", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -117,24 +77,64 @@ namespace BlazorMachinePark.Migrations
                         });
                 });
 
+            modelBuilder.Entity("BlazorMachinePark.Shared.Domain.Country", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Sweden"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Norway"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Denmark"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Finland"
+                        });
+                });
+
             modelBuilder.Entity("BlazorMachinePark.Shared.Domain.Machine", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsRunning")
                         .HasColumnType("bit");
-
-                    b.Property<int>("LocationId")
-                        .HasColumnType("int");
 
                     b.Property<int>("MachineTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LocationId");
+                    b.HasIndex("CityId");
 
                     b.HasIndex("MachineTypeId");
 
@@ -143,23 +143,23 @@ namespace BlazorMachinePark.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("913bc8e0-129c-499a-b7fa-1b0da1873b75"),
+                            Id = new Guid("4098d29d-d7ff-46cd-a5a4-53c81436cb9c"),
+                            CityId = 1,
                             IsRunning = true,
-                            LocationId = 1,
                             MachineTypeId = 1
                         },
                         new
                         {
-                            Id = new Guid("310adec4-32bc-4837-8c3b-c612bea9c7e3"),
+                            Id = new Guid("52ca90a4-54da-47c2-a335-7485f6f36833"),
+                            CityId = 2,
                             IsRunning = false,
-                            LocationId = 2,
                             MachineTypeId = 2
                         },
                         new
                         {
-                            Id = new Guid("9edb6845-be01-4b21-b9a8-7bb5f2d8abeb"),
+                            Id = new Guid("aa769b66-33b7-48f0-8cb0-2dc9f4904e05"),
+                            CityId = 3,
                             IsRunning = true,
-                            LocationId = 3,
                             MachineTypeId = 3
                         });
                 });
@@ -207,7 +207,7 @@ namespace BlazorMachinePark.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BlazorMachinePark.Shared.Domain.Location", b =>
+            modelBuilder.Entity("BlazorMachinePark.Shared.Domain.City", b =>
                 {
                     b.HasOne("BlazorMachinePark.Shared.Domain.Country", "Country")
                         .WithMany()
@@ -220,9 +220,9 @@ namespace BlazorMachinePark.Migrations
 
             modelBuilder.Entity("BlazorMachinePark.Shared.Domain.Machine", b =>
                 {
-                    b.HasOne("BlazorMachinePark.Shared.Domain.Location", "Location")
+                    b.HasOne("BlazorMachinePark.Shared.Domain.City", "City")
                         .WithMany("Machines")
-                        .HasForeignKey("LocationId")
+                        .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -232,12 +232,12 @@ namespace BlazorMachinePark.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Location");
+                    b.Navigation("City");
 
                     b.Navigation("MachineType");
                 });
 
-            modelBuilder.Entity("BlazorMachinePark.Shared.Domain.Location", b =>
+            modelBuilder.Entity("BlazorMachinePark.Shared.Domain.City", b =>
                 {
                     b.Navigation("Machines");
                 });

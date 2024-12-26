@@ -1,0 +1,40 @@
+@page "/Dashboard"
+<h1>Dashboard</h1>
+
+<PageTitle>@Title</PageTitle>
+
+@if (Machines == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-light">
+        <thead class="table-primary">
+        <tr>
+            <th>DeviceId</th>
+            <th>Location</th>
+            <th>Type</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var machine in Machines)
+        {
+            <tr>
+                <td>@machine.Id</td>
+                <td>
+                    <span>@machine.Location.CityName</span>
+                    <span>@machine.Location.CountryName</span>
+                </td>
+                <td>    
+                    <span>@machine.MachineType.Name</span>
+                    <span>@machine.MachineType.Description</span>
+                </td>
+                <td>@machine.IsRunning</td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+}

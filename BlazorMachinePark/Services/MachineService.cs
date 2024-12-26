@@ -1,6 +1,7 @@
 ﻿using BlazorMachinePark.Contracts.Repositories;
 using BlazorMachinePark.Contracts.Services;
 using BlazorMachinePark.Data;
+using BlazorMachinePark.DTOs;
 using BlazorMachinePark.Shared.Domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,10 +16,25 @@ namespace BlazorMachinePark.Services
             _machineRepository = machineRepository;
         }
 
-        public async Task<IEnumerable<Machine>> GetAllMachines()
+        public async Task<IEnumerable<MachineDto>> GetAllMachines()
         {
-            return await _machineRepository.GetAllMachines();
+            var machines = await _machineRepository.GetAllMachines();
 
+            return machines.Select(m => new MachineDto
+            {
+                Id = m.Id,
+                IsRunning = m.IsRunning,
+                Location = new LocationDto
+                {
+                    CityName = m.City?.Name,
+                    CountryName = m.City?.Country?.Name
+                },
+                MachineType = new MachineTypeDto
+                {
+                    Name = m.MachineType.Name,
+                    Description = m.MachineType.Description
+                }
+            }).ToList();
         }
 
         public async Task<Machine> GetMachineDetails(Guid machineId)
