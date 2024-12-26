@@ -42,7 +42,7 @@ namespace BlazorMachinePark.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Locations");
+                    b.ToTable("Cities");
 
                     b.HasData(
                         new
@@ -143,21 +143,21 @@ namespace BlazorMachinePark.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4098d29d-d7ff-46cd-a5a4-53c81436cb9c"),
+                            Id = new Guid("f673b536-bff2-4ada-a60e-92342fa871c1"),
                             CityId = 1,
                             IsRunning = true,
                             MachineTypeId = 1
                         },
                         new
                         {
-                            Id = new Guid("52ca90a4-54da-47c2-a335-7485f6f36833"),
+                            Id = new Guid("76c159e5-9c0e-44e4-9a8e-1732132cefca"),
                             CityId = 2,
                             IsRunning = false,
                             MachineTypeId = 2
                         },
                         new
                         {
-                            Id = new Guid("aa769b66-33b7-48f0-8cb0-2dc9f4904e05"),
+                            Id = new Guid("c4d8fc65-de98-494a-9e15-c04c760e81be"),
                             CityId = 3,
                             IsRunning = true,
                             MachineTypeId = 3

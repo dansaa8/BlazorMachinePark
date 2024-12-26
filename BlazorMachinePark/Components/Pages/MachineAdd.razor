@@ -1,0 +1,45 @@
+@page "/MachineAdd"
+
+<h3>MachineAdd</h3>
+
+@rendermode InteractiveServer
+
+
+@if (!IsSubmitted)
+{
+    <EditForm Model="Machine" method="post" Enhance OnSubmit="OnSubmit" FormName="add-machine-form">
+        @* <AntiforgeryToken/> *@
+
+
+        <div class="row mb-3">
+            <label for="machineTypeSelect" class="col-form-label col-md-3">Select Machine Type: </label>
+            <div class="col-md-8">
+                <InputSelect id="machineTypeSelect" class="form-control" @bind-Value="Machine.MachineTypeId">
+                    <option value="">Select a machine type</option>
+                    @foreach (var machineType in MachineTypes)
+                    {
+                        <option value="@machineType.Id">@machineType.Name</option>
+                    }
+                </InputSelect>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <label for="citySelect" class="col-form-label col-md-3">Select City: </label>
+            <div class="col-md-8">
+                <InputSelect id="citySelect" class="form-control" @bind-Value="Machine.CityId">
+                    <option value="">Select a city</option>
+                    @foreach (var city in Cities)
+                    {
+                        <option value="@city.Id">@city.Name <span>(<em>@city.Country.Name</em>)</span></option>
+                    }
+                </InputSelect>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-outline-primary ms-1">Submit</button>
+        </div>
+
+    </EditForm>
+}

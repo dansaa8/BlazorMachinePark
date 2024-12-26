@@ -9,7 +9,7 @@ namespace BlazorMachinePark.Data
 
         public DbSet<Machine> Machines { get; set; }
         public DbSet<MachineType> MachineTypes { get; set; }
-        public DbSet<City> Locations { get; set; }
+        public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

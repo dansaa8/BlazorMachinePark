@@ -4,6 +4,7 @@ using BlazorMachinePark.Contracts.Services;
 using BlazorMachinePark.Data;
 using BlazorMachinePark.Repositories;
 using BlazorMachinePark.Services;
+using BlazorMachinePark.Shared.Domain;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,12 @@ builder.Services.AddDbContextFactory<AppDbContext>(options =>
 
 builder.Services.AddScoped<IMachineRepository, MachineRepository>();
 builder.Services.AddScoped<IMachineService, MachineService>();
+
+builder.Services.AddScoped<IMachineTypeRepository, MachineTypeRepository>();
+builder.Services.AddScoped<IMachineTypeService, MachineTypeService>();
+
+builder.Services.AddScoped<ICityRepository, CityRepository>();
+builder.Services.AddScoped<ICityService, CityService>();
 
 var app = builder.Build();
 
