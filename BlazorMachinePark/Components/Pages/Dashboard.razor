@@ -2,6 +2,9 @@
 <h1>Dashboard</h1>
 
 <PageTitle>@Title</PageTitle>
+<div>
+    <a href="machineAdd" class="btn btn-outline-primary btn-sm mb-1">New Device </a>
+</div>
 
 @if (Machines == null)
 {
@@ -16,6 +19,7 @@ else
             <th>Location</th>
             <th>Type</th>
             <th>Status</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -51,6 +55,13 @@ else
                         <div type="button" class="btn btn-outline-danger">Offline</div>
                     }
                 </td>
+                <td>
+                    <a href="@($"machineEdit/{machine.Id}")" class="btn btn-outline-primary btn-sm mb-1">
+                        Edit </a>
+                    <a href="@($"machineDelete/{machine.Id}")" class="btn btn-outline-primary btn-sm mb-1">
+                        Delete </a>
+                </td>
+
             </tr>
         }
 
