@@ -1,0 +1,68 @@
+@page "/MachineEdit/{MachineId:guid}"
+
+@rendermode InteractiveServer
+@* <h3>MachineEdit</h3> *@
+
+@if (!Saved)
+{
+    <section class="machine-edit">
+        <h1 class="page-title">Details for @Machine.Id</h1>
+        <EditForm Enhance
+                  Model="Machine"
+                  FormName="EditMachineForm"
+                  OnValidSubmit="@HandleValidSubmit"
+                  OnInvalidSubmit="@HandleInvalidSubmit"
+                  method="post">
+
+            <div class="row mb-3">
+                <label for="machineType" class="col-form-label col-md-3">Select Machine Type: </label>
+                <div class="col-md-8">
+                    <InputSelect id="machineType" class="form-select col-md-8" @bind-Value="Machine.MachineTypeId">
+                        <option value="">Select a machine type</option>
+                        @foreach (var machineType in MachineTypes)
+                        {
+                            <option value="@machineType.Id">@machineType.Name</option>
+                        }
+                    </InputSelect>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="city" class="col-form-label col-md-3">Select City: </label>
+                <div class="col-md-8">
+                    <InputSelect id="city" class="form-select col-md-8" @bind-Value="Machine.CityId">
+                        <option value="">Select a city</option>
+                        @foreach (var city in Cities)
+                        {
+                            <option value="@city.Id">@city.Name <span>(<em>@city.Country.Name</em>)</span></option>
+                        }
+                    </InputSelect>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-8 offset-md-3">
+                    <div class="form-check">
+                        <InputCheckbox id="isRunning" class="form-check-input" @bind-Value="@Machine.IsRunning">
+                        </InputCheckbox>
+                        <label class="form-check-label" for="isRunning">Online</label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary me-1">Save Machine</button>
+            <button type="button" class="btn btn-danger my-1" @onclick="@DeleteMachine">Delete</button>
+            <button type="button" class="btn btn-outline-primary" @onclick="@NavigateToDashboard">
+                Back to dashboard
+            </button>
+
+        </EditForm>
+    </section>
+}
+else
+{
+    <div class="alert @StatusClass">@Message</div>
+    <button type="button" class="btn btn-outline-primary" @onclick="@NavigateToDashboard">Back to dashboard</button>
+}

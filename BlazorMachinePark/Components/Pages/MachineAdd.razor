@@ -15,9 +15,9 @@
 
 
         <div class="row mb-3">
-            <label for="machineTypeSelect" class="col-form-label col-md-3">Select Machine Type: </label>
+            <label for="machineType" class="col-form-label col-md-3">Select Machine Type: </label>
             <div class="col-md-8">
-                <InputSelect id="machineTypeSelect" class="form-control" @bind-Value="Machine.MachineTypeId">
+                <InputSelect id="machineType" class="form-control" @bind-Value="Machine.MachineTypeId">
                     <option value="">Select a machine type</option>
                     @foreach (var machineType in MachineTypes)
                     {
@@ -28,9 +28,9 @@
         </div>
 
         <div class="row mb-3">
-            <label for="citySelect" class="col-form-label col-md-3">Select City: </label>
+            <label for="city" class="col-form-label col-md-3">Select City: </label>
             <div class="col-md-8">
-                <InputSelect id="citySelect" class="form-control" @bind-Value="Machine.CityId">
+                <InputSelect id="city" class="form-control" @bind-Value="Machine.CityId">
                     <option value="">Select a city</option>
                     @foreach (var city in Cities)
                     {
