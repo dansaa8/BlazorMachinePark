@@ -7,6 +7,9 @@
 
 @if (!IsSubmitted)
 {
+    // Utan enhance så gör formen en full-page refresh. 
+    // med den tillagd så interceptar blazor request och gör en fetch istället
+    // responsen patchas till DOM:en igen och gör appen mer responsiv och state förloras inte
     <EditForm Model="Machine" method="post" Enhance OnSubmit="OnSubmit" FormName="add-machine-form">
         @* <AntiforgeryToken/> *@
 
@@ -23,7 +26,7 @@
                 </InputSelect>
             </div>
         </div>
-        
+
         <div class="row mb-3">
             <label for="citySelect" class="col-form-label col-md-3">Select City: </label>
             <div class="col-md-8">
@@ -42,4 +45,8 @@
         </div>
 
     </EditForm>
+}
+else
+{
+    <h4 class="text-success">@Message</h4>
 }
