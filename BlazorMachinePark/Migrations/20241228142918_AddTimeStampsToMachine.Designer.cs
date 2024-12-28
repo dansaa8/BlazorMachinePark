@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorMachinePark.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241228135013_AddTimeStampsToMachine")]
+    [Migration("20241228142918_AddTimeStampsToMachine")]
     partial class AddTimeStampsToMachine
     {
         /// <inheritdoc />
@@ -160,30 +160,30 @@ namespace BlazorMachinePark.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a007fa92-abd6-4122-858c-87d9401fc2ed"),
+                            Id = new Guid("7d07de2d-e797-43c1-8326-69166caa9e58"),
                             CityId = 1,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460),
                             IsRunning = true,
                             MachineTypeId = 1,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460)
                         },
                         new
                         {
-                            Id = new Guid("da1bba3a-ce1b-480d-b05e-b477249c168f"),
+                            Id = new Guid("ea0ea04b-1ece-478a-b010-3ead157838b7"),
                             CityId = 2,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460),
                             IsRunning = false,
                             MachineTypeId = 2,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460)
                         },
                         new
                         {
-                            Id = new Guid("9ab398a3-8b15-4295-8b4b-9f9c99719f51"),
+                            Id = new Guid("5359fc14-52d4-4c46-994b-09467cab7863"),
                             CityId = 3,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460),
                             IsRunning = true,
                             MachineTypeId = 3,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460)
                         });
                 });
 

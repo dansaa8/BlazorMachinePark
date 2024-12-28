@@ -47,9 +47,9 @@ namespace BlazorMachinePark.Migrations
                 columns: new[] { "Id", "CityId", "CreatedAt", "IsRunning", "MachineTypeId", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("9ab398a3-8b15-4295-8b4b-9f9c99719f51"), 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), true, 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("a007fa92-abd6-4122-858c-87d9401fc2ed"), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), true, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("da1bba3a-ce1b-480d-b05e-b477249c168f"), 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("5359fc14-52d4-4c46-994b-09467cab7863"), 3, new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460), true, 3, new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460) },
+                    { new Guid("7d07de2d-e797-43c1-8326-69166caa9e58"), 1, new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460), true, 1, new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460) },
+                    { new Guid("ea0ea04b-1ece-478a-b010-3ead157838b7"), 2, new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460), false, 2, new DateTime(2024, 12, 28, 14, 29, 18, 168, DateTimeKind.Utc).AddTicks(4460) }
                 });
         }
 
@@ -59,17 +59,17 @@ namespace BlazorMachinePark.Migrations
             migrationBuilder.DeleteData(
                 table: "Machines",
                 keyColumn: "Id",
-                keyValue: new Guid("9ab398a3-8b15-4295-8b4b-9f9c99719f51"));
+                keyValue: new Guid("5359fc14-52d4-4c46-994b-09467cab7863"));
 
             migrationBuilder.DeleteData(
                 table: "Machines",
                 keyColumn: "Id",
-                keyValue: new Guid("a007fa92-abd6-4122-858c-87d9401fc2ed"));
+                keyValue: new Guid("7d07de2d-e797-43c1-8326-69166caa9e58"));
 
             migrationBuilder.DeleteData(
                 table: "Machines",
                 keyColumn: "Id",
-                keyValue: new Guid("da1bba3a-ce1b-480d-b05e-b477249c168f"));
+                keyValue: new Guid("ea0ea04b-1ece-478a-b010-3ead157838b7"));
 
             migrationBuilder.DropColumn(
                 name: "CreatedAt",

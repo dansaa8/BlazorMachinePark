@@ -37,24 +37,31 @@ namespace BlazorMachinePark.Data
                 new MachineType { Id = 2, Name = "Pressure Sensor", Description = "measures pressure" },
                 new MachineType { Id = 3, Name = "Vibration Sensor", Description = "detects vibrations" });
 
+            var now = DateTime.UtcNow;
             modelBuilder.Entity<Machine>().HasData(
                 new Machine
                 {
                     IsRunning = true,
                     CityId = 1, // Stockholm
-                    MachineTypeId = 1 // Weather Sensor
+                    MachineTypeId = 1, // Weather Sensor
+                    CreatedAt = now,
+                    UpdatedAt = now,
                 },
                 new Machine
                 {
                     IsRunning = false,
                     CityId = 2, // Oslo
-                    MachineTypeId = 2 // Pressure Sensor
+                    MachineTypeId = 2, // Pressure Sensor
+                    CreatedAt = now,
+                    UpdatedAt = now,
                 },
                 new Machine
                 {
                     IsRunning = true,
                     CityId = 3, // Copenhagen
-                    MachineTypeId = 3 // Vibration Sensor
+                    MachineTypeId = 3, // Vibration Sensor
+                    CreatedAt = now,
+                    UpdatedAt = now,
                 });
         }
 

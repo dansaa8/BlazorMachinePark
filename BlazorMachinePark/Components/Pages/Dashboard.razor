@@ -18,6 +18,7 @@ else
             <th>DeviceId</th>
             <th>Location</th>
             <th>Type</th>
+            <th>Date</th>
             <th>Status</th>
             <th></th>
         </tr>
@@ -45,6 +46,11 @@ else
                     </span>
                     <br/>
                     <span>@machine.MachineType.Description</span>
+                </td>
+                <td>
+                    <span>@machine.UpdatedAt.ToString("yyyy-MM-dd")</span>
+                    <br/>
+                    <span>Last Updated</span>
                 </td>
                 <td>
                     @if (machine.IsRunning)

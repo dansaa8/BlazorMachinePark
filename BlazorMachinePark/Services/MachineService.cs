@@ -34,7 +34,8 @@ namespace BlazorMachinePark.Services
                 {
                     Name = m.MachineType.Name,
                     Description = m.MachineType.Description
-                }
+                },
+                UpdatedAt = m.UpdatedAt
             }).ToList();
         }
 
