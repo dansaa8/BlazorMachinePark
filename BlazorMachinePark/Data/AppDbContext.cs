@@ -1,11 +1,14 @@
 ﻿using BlazorMachinePark.Shared.Domain;
+using BlazorMachinePark.Shared.Domain.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlazorMachinePark.Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
 
         public DbSet<Machine> Machines { get; set; }
         public DbSet<MachineType> MachineTypes { get; set; }
@@ -17,9 +20,9 @@ namespace BlazorMachinePark.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Country>().HasData(
-                new Country { Id = 1, Name = "Sweden", EmojiFlag = "\ud83c\uddf8\ud83c\uddea"},
-                new Country { Id = 2, Name = "Norway", EmojiFlag = "\ud83c\uddf3\ud83c\uddf4"},
-                new Country { Id = 3, Name = "Denmark", EmojiFlag = "\ud83c\udde9\ud83c\uddf0"},
+                new Country { Id = 1, Name = "Sweden", EmojiFlag = "\ud83c\uddf8\ud83c\uddea" },
+                new Country { Id = 2, Name = "Norway", EmojiFlag = "\ud83c\uddf3\ud83c\uddf4" },
+                new Country { Id = 3, Name = "Denmark", EmojiFlag = "\ud83c\udde9\ud83c\uddf0" },
                 new Country { Id = 4, Name = "Finland", EmojiFlag = "\ud83c\uddeb\ud83c\uddee" });
 
             modelBuilder.Entity<City>().HasData(
@@ -53,7 +56,32 @@ namespace BlazorMachinePark.Data
                     CityId = 3, // Copenhagen
                     MachineTypeId = 3 // Vibration Sensor
                 });
+        }
 
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            UpdateTimeStamps();
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        private void UpdateTimeStamps()
+        {
+            var entries = ChangeTracker
+                .Entries()
+                .Where(e => e.Entity is ITimeStamped &&
+                    e.State == EntityState.Added || e.State == EntityState.Modified);
+
+            foreach (var entityEntry in entries)
+            {
+                var now = DateTime.UtcNow;
+
+                if (entityEntry.State == EntityState.Added)
+                {
+                    ((ITimeStamped)entityEntry.Entity).CreatedAt = now;
+                }
+
+                ((ITimeStamped)entityEntry.Entity).UpdatedAt = now;
+            }
         }
     }
 }

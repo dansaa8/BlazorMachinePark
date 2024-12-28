@@ -20,4 +20,8 @@
 		<ProjectReference Include="..\BlazorMachinePark.Shared\BlazorMachinePark.Shared.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Contracts\Entities\" />
+	</ItemGroup>
+
 </Project>

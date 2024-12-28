@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlazorMachinePark.Shared.Domain.Contracts;
 
 namespace BlazorMachinePark.Shared.Domain
 {
-    public class Machine
+    public class Machine : ITimeStamped
     {
         [Key] public Guid Id { get; set; } // GUID as pk
         public bool IsRunning { get; set; }
@@ -22,5 +23,8 @@ namespace BlazorMachinePark.Shared.Domain
         {
             Id = Guid.NewGuid(); // Automatically generate GUID when creating a new machine.
         }
+
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }
