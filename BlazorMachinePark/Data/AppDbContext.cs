@@ -17,10 +17,10 @@ namespace BlazorMachinePark.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Country>().HasData(
-                new Country { Id = 1, Name = "Sweden" },
-                new Country { Id = 2, Name = "Norway" },
-                new Country { Id = 3, Name = "Denmark" },
-                new Country { Id = 4, Name = "Finland" });
+                new Country { Id = 1, Name = "Sweden", EmojiFlag = "\ud83c\uddf8\ud83c\uddea"},
+                new Country { Id = 2, Name = "Norway", EmojiFlag = "\ud83c\uddf3\ud83c\uddf4"},
+                new Country { Id = 3, Name = "Denmark", EmojiFlag = "\ud83c\udde9\ud83c\uddf0"},
+                new Country { Id = 4, Name = "Finland", EmojiFlag = "\ud83c\uddeb\ud83c\uddee" });
 
             modelBuilder.Entity<City>().HasData(
                 new City { Id = 1, Name = "Stockholm", CountryId = 1 },

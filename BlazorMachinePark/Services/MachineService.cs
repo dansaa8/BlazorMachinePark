@@ -27,7 +27,8 @@ namespace BlazorMachinePark.Services
                 Location = new LocationDto
                 {
                     CityName = m.City?.Name,
-                    CountryName = m.City?.Country?.Name
+                    CountryName = m.City?.Country?.Name,
+                    CountryFlag = m.City?.Country?.EmojiFlag
                 },
                 MachineType = new MachineTypeDto
                 {
@@ -56,7 +57,5 @@ namespace BlazorMachinePark.Services
         {
             await _machineRepository.DeleteMachine(machineId);
         }
-
-
     }
 }

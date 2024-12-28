@@ -10,5 +10,7 @@ namespace BlazorMachinePark.Shared.Domain
         [Required]
         [MaxLength(50)]
         public string Name { get; set; } = string.Empty;
+        
+        public string EmojiFlag { get; set; } = string.Empty;
     }
 }
