@@ -1,22 +1,22 @@
 using BlazorMachinePark.Components;
 using BlazorMachinePark.Contracts.Repositories;
 using BlazorMachinePark.Contracts.Services;
-using BlazorMachinePark.Data;
-using BlazorMachinePark.Repositories;
-using BlazorMachinePark.Services;
-using BlazorMachinePark.Shared.Domain;
+using BlazorMachinePark.Data.DbContexts;
+using BlazorMachinePark.Data.Repositories;
+using BlazorMachinePark.Services.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+    .AddInteractiveServerComponents()
+    .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddDbContextFactory<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration["ConnectionStrings:DefaultConnection"]
-        ));
+    ));
 
 
 builder.Services.AddScoped<IMachineRepository, MachineRepository>();
@@ -44,6 +44,8 @@ app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
-
+    .AddInteractiveServerRenderMode()
+    .AddInteractiveWebAssemblyRenderMode()
+    .AddAdditionalAssemblies(typeof(
+        BlazorMachinePark.Client._Imports).Assembly);
 app.Run();

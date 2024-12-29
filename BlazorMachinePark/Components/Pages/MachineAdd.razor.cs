@@ -1,6 +1,5 @@
 using BlazorMachinePark.Contracts.Services;
-using BlazorMachinePark.Services;
-using BlazorMachinePark.Shared.Domain;
+using BlazorMachinePark.Shared.Entities;
 using Microsoft.AspNetCore.Components;
 
 namespace BlazorMachinePark.Components.Pages;
