@@ -17,6 +17,6 @@ public partial class Dashboard
     
     protected async override Task OnInitializedAsync()
     {
-        Machines = (await MachineService.GetAllMachines()).ToList();
+        Machines = (await MachineService.GetAllMachinesAsync()).ToList();
     }   
 }

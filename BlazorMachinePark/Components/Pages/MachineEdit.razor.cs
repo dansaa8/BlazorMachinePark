@@ -31,12 +31,12 @@ public partial class MachineEdit : ComponentBase
         MachineTypes = (await MachineTypeService.GetAllMachineTypes()).ToList();
         Cities = (await CityService.GetAllCitiesAsync()).ToList();
 
-        Machine = await MachineService.GetMachineDetails(MachineId);
+        Machine = await MachineService.GetMachineDetailsAsync(MachineId);
     }
 
     protected async Task HandleValidSubmit()
     {
-        await MachineService.UpdateMachine(Machine);
+        await MachineService.UpdateMachineAsync(Machine);
         Saved = true;
         StatusClass = "alert-success";
         Message = "Machine updated successfully";
@@ -50,7 +50,7 @@ public partial class MachineEdit : ComponentBase
 
     protected async Task DeleteMachine()
     {
-        await MachineService.DeleteMachine(Machine.Id);
+        await MachineService.DeleteMachineAsync(Machine.Id);
 
         StatusClass = "alert-success";
         Message = "Machine deleted successfully";

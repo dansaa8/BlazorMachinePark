@@ -40,7 +40,7 @@ public partial class MachineAdd
     {
         Console.WriteLine($"CityId: {Machine.CityId}");
         Console.WriteLine($"MachineTypeId: {Machine.MachineTypeId}");
-        await MachineService.AddMachine(Machine);
+        await MachineService.AddMachineAsync(Machine);
         IsSubmitted = true;
         Message = "Machine added";
     }

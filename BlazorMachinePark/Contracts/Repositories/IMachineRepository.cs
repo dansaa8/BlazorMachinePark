@@ -4,10 +4,11 @@ namespace BlazorMachinePark.Contracts.Repositories
 {
     public interface IMachineRepository
     {
-        Task<IEnumerable<Machine>> GetAllMachines();
-        Task<Machine> GetMachineById(Guid machineId);
-        Task<Machine> AddMachine(Machine machine);
-        Task<Machine> UpdateMachine(Machine machine);
-        Task DeleteMachine(Guid machineId);
+        Task<IEnumerable<Machine>> GetAllMachinesAsync();
+        Task<Machine> GetMachineByIdAsync(Guid machineId);
+        Task<Machine> AddMachineAsync(Machine machine);
+        Task<Machine> UpdateMachineAsync(Machine machine);
+        Task DeleteMachineAsync(Guid machineId);
+        Task<int> CountMachinesAsync();
     }
 }

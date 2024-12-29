@@ -16,9 +16,9 @@ namespace BlazorMachinePark.Services
             _machineRepository = machineRepository;
         }
 
-        public async Task<IEnumerable<MachineDto>> GetAllMachines()
+        public async Task<IEnumerable<MachineDto>> GetAllMachinesAsync()
         {
-            var machines = await _machineRepository.GetAllMachines();
+            var machines = await _machineRepository.GetAllMachinesAsync();
 
             return machines.Select(m => new MachineDto
             {
@@ -39,24 +39,29 @@ namespace BlazorMachinePark.Services
             }).ToList();
         }
 
-        public async Task<Machine> GetMachineDetails(Guid machineId)
+        public async Task<Machine> GetMachineDetailsAsync(Guid machineId)
         {
-            return await _machineRepository.GetMachineById(machineId);
+            return await _machineRepository.GetMachineByIdAsync(machineId);
         }
 
-        public async Task<Machine> AddMachine(Machine machine)
+        public async Task<Machine> AddMachineAsync(Machine machine)
         {
-            return await _machineRepository.AddMachine(machine);
+            return await _machineRepository.AddMachineAsync(machine);
         }
 
-        public async Task UpdateMachine(Machine machine)
+        public async Task UpdateMachineAsync(Machine machine)
         {
-            await _machineRepository.UpdateMachine(machine);
+            await _machineRepository.UpdateMachineAsync(machine);
         }
 
-        public async Task DeleteMachine(Guid machineId)
+        public async Task DeleteMachineAsync(Guid machineId)
         {
-            await _machineRepository.DeleteMachine(machineId);
+            await _machineRepository.DeleteMachineAsync(machineId);
+        }
+
+        public Task<int> CountMachinesAsync()
+        {
+            return _machineRepository.CountMachinesAsync();
         }
     }
 }

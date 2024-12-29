@@ -14,7 +14,7 @@ namespace BlazorMachinePark.Repositories
             _appDbContext = dbFactory.CreateDbContext();
         }
 
-        public async Task<IEnumerable<Machine>> GetAllMachines()
+        public async Task<IEnumerable<Machine>> GetAllMachinesAsync()
         {
             return await _appDbContext.Machines
                 .Include(m => m.MachineType)
@@ -23,20 +23,20 @@ namespace BlazorMachinePark.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Machine> GetMachineById(Guid machineId)
+        public async Task<Machine> GetMachineByIdAsync(Guid machineId)
         {
             return await _appDbContext.Machines
                 .FirstOrDefaultAsync(m => m.Id.Equals(machineId));
         }
 
-        public async Task<Machine> AddMachine(Machine machine)
+        public async Task<Machine> AddMachineAsync(Machine machine)
         {
             var addedEntity = await _appDbContext.Machines.AddAsync(machine);
             await _appDbContext.SaveChangesAsync();
             return addedEntity.Entity;
         }
 
-        public async Task<Machine> UpdateMachine(Machine machine)
+        public async Task<Machine> UpdateMachineAsync(Machine machine)
         {
             var foundMachine = await _appDbContext.Machines.FirstOrDefaultAsync(m => m.Id.Equals(machine.Id));
 
@@ -53,7 +53,7 @@ namespace BlazorMachinePark.Repositories
             return null;
         }
 
-        public async Task DeleteMachine(Guid machineId)
+        public async Task DeleteMachineAsync(Guid machineId)
         {
             var foundMachine = await _appDbContext.Machines.FirstOrDefaultAsync(m => m.Id.Equals(machineId));
 
@@ -63,7 +63,11 @@ namespace BlazorMachinePark.Repositories
             await _appDbContext.SaveChangesAsync();
         }
 
-
+        public Task<int> CountMachinesAsync()
+        {
+            return _appDbContext.Machines.CountAsync();
+        }
+        
         public void Dispose()
         {
             _appDbContext.Dispose();
