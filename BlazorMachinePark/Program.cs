@@ -48,4 +48,7 @@ app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(
         BlazorMachinePark.Client._Imports).Assembly);
+
+app.MapGet("/api/machine", async (IMachineService machineService) =>
+    await machineService.GetAllMachinesAsync());
 app.Run();
