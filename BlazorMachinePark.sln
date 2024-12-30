@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMachinePark", "BlazorMachinePark\BlazorMachinePark.csproj", "{56629DFE-A3BB-4E3E-9DFC-0E5883F1EA37}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMachinePark.Shared", "BlazorMachinePark.Shared\BlazorMachinePark.Shared.csproj", "{5839F7F5-A9B9-4ED3-A8F2-C1BCC42D467F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMachinePark.Client", "BlazorMachinePark.Client\BlazorMachinePark.Client.csproj", "{65BFE503-FDD2-46E8-9B27-0DB6AB936F51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMachinePark.Data", "BlazorMachinePark.Data\BlazorMachinePark.Data.csproj", "{67113774-82A3-4D6A-ADEF-8F3180190542}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMachinePark.Services", "BlazorMachinePark.Services\BlazorMachinePark.Services.csproj", "{0BB87886-75FB-471E-BAB0-7AF51747B945}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMachinePark.Contracts", "BlazorMachinePark.Contracts\BlazorMachinePark.Contracts.csproj", "{07BD6124-8BC1-45B9-A4F6-393F20621FCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMachinePark.Client", "BlazorMachinePark.Client\BlazorMachinePark.Client.csproj", "{77BCEEF9-2A10-4B3E-8E1B-D93442BFDAD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		{5839F7F5-A9B9-4ED3-A8F2-C1BCC42D467F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5839F7F5-A9B9-4ED3-A8F2-C1BCC42D467F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5839F7F5-A9B9-4ED3-A8F2-C1BCC42D467F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65BFE503-FDD2-46E8-9B27-0DB6AB936F51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65BFE503-FDD2-46E8-9B27-0DB6AB936F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65BFE503-FDD2-46E8-9B27-0DB6AB936F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65BFE503-FDD2-46E8-9B27-0DB6AB936F51}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67113774-82A3-4D6A-ADEF-8F3180190542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{67113774-82A3-4D6A-ADEF-8F3180190542}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67113774-82A3-4D6A-ADEF-8F3180190542}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{07BD6124-8BC1-45B9-A4F6-393F20621FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07BD6124-8BC1-45B9-A4F6-393F20621FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07BD6124-8BC1-45B9-A4F6-393F20621FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77BCEEF9-2A10-4B3E-8E1B-D93442BFDAD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77BCEEF9-2A10-4B3E-8E1B-D93442BFDAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77BCEEF9-2A10-4B3E-8E1B-D93442BFDAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77BCEEF9-2A10-4B3E-8E1B-D93442BFDAD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

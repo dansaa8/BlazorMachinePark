@@ -1,5 +1,4 @@
-﻿using BlazorMachinePark.Contracts.Entities;
-using BlazorMachinePark.Shared.Entities;
+﻿using BlazorMachinePark.Shared.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlazorMachinePark.Data.DbContexts

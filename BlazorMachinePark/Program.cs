@@ -4,6 +4,7 @@ using BlazorMachinePark.Contracts.Services;
 using BlazorMachinePark.Data.DbContexts;
 using BlazorMachinePark.Data.Repositories;
 using BlazorMachinePark.Services.Services;
+using BlazorMachinePark.Shared.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -50,5 +51,6 @@ app.MapRazorComponents<App>()
         BlazorMachinePark.Client._Imports).Assembly);
 
 app.MapGet("/api/machine", async (IMachineService machineService) =>
-    await machineService.GetAllMachinesAsync());
+await machineService.GetAllMachinesAsync());
+
 app.Run();

@@ -1,4 +1,4 @@
-namespace BlazorMachinePark.Contracts.Entities;
+namespace BlazorMachinePark.Shared.Entities;
 
 public interface ITimeStamped
 {
