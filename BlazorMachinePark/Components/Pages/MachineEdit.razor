@@ -56,6 +56,29 @@
 
             </div>
 
+            <div class="row mb-3">
+                <label for="longitude" class="col-form-label col-md-3">Longitude: </label>
+                <div class="col-md-8">
+                    <InputNumber id="longitude" class="form-control col-md-8" @bind-Value="@Machine.Longitude"
+                                 placeholder="Enter Longitude"
+                                 step="0.0001"
+                                 min="-180"
+                                 max="180" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="latitude" class="col-form-label col-md-3">Latitude: </label>
+                <div class="col-md-8">
+                    <InputNumber id="latitude" class="form-control col-md-8" @bind-Value="@Machine.Latitude"
+                                 placeholder="Enter Latitude"
+                                 step="0.0001"
+                                 min="-90"
+                                 max="90" />
+                </div>
+            </div>
+
+
             <button type="submit" class="btn btn-primary me-1">Save Machine</button>
             <button type="button" class="btn btn-danger my-1" @onclick="@DeleteMachine">Delete</button>
             <button type="button" class="btn btn-outline-primary" @onclick="@NavigateToDashboard">
