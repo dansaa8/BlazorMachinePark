@@ -7,8 +7,11 @@ namespace BlazorMachinePark.Shared.Entities
         [Key] public Guid Id { get; set; } // GUID as pk
         public bool IsRunning { get; set; }
 
+        [Required] public double Latitude { get; set; }
+        [Required] public double Longitude { get; set; }
+
         [Required] public City City { get; set; } // Nav-prop
-        public int CityId { get; set; } 
+        public int CityId { get; set; }
 
         [Required] public MachineType MachineType { get; set; } // Nav-prop
         public int MachineTypeId { get; set; }

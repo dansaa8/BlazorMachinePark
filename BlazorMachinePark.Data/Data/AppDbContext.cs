@@ -45,6 +45,8 @@ namespace BlazorMachinePark.Data.DbContexts
                     MachineTypeId = 1, // Weather Sensor
                     CreatedAt = now,
                     UpdatedAt = now,
+                    Longitude = 18.05,
+                    Latitude = 59.325,
                 },
                 new Machine
                 {
@@ -53,6 +55,8 @@ namespace BlazorMachinePark.Data.DbContexts
                     MachineTypeId = 2, // Pressure Sensor
                     CreatedAt = now,
                     UpdatedAt = now,
+                    Longitude = 10.74609,
+                    Latitude = 59.91273,
                 },
                 new Machine
                 {
@@ -61,6 +65,8 @@ namespace BlazorMachinePark.Data.DbContexts
                     MachineTypeId = 3, // Vibration Sensor
                     CreatedAt = now,
                     UpdatedAt = now,
+                    Longitude = 12.568337,
+                    Latitude = 55.676098
                 });
         }
 

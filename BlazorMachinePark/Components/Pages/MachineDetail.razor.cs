@@ -10,7 +10,6 @@ public partial class MachineDetail
     [Parameter] public Guid MachineId { get; set; }
 
     [Inject] public IMachineService? MachineService { get; set; }
-    [Inject] public MachineStateService? MachineStateService { get; set; }
 
     public Machine Machine { get; set; } = null!;
 
@@ -23,8 +22,5 @@ public partial class MachineDetail
     {
         Machine.IsRunning = !Machine.IsRunning;
         await MachineService.UpdateMachineAsync(Machine);
-        
-        // Notify that machine state has been updated:
-        MachineStateService?.NotifyStateChanged();
     }
 }
