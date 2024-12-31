@@ -26,6 +26,9 @@ namespace BlazorMachinePark.Data.Repositories
         public async Task<Machine> GetMachineByIdAsync(Guid machineId)
         {
             return await _appDbContext.Machines
+                .Include(m => m.MachineType)
+                .Include(m => m.City)
+                .ThenInclude(m => m.Country)
                 .FirstOrDefaultAsync(m => m.Id.Equals(machineId));
         }
 
