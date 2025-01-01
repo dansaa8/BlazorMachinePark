@@ -2,7 +2,7 @@ using BlazorMachinePark.Shared.Model;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace BlazorMachinePark.Components;
+namespace BlazorMachinePark.ComponentsLibrary;
 
 public partial class Map
 {

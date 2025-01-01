@@ -19,10 +19,21 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\BlazorMachinePark.Client\BlazorMachinePark.Client.csproj" />
+		<ProjectReference Include="..\BlazorMachinePark.ComponentsLibrary\BlazorMachinePark.ComponentsLibrary.csproj" />
 		<ProjectReference Include="..\BlazorMachinePark.Contracts\BlazorMachinePark.Contracts.csproj" />
 		<ProjectReference Include="..\BlazorMachinePark.Data\BlazorMachinePark.Data.csproj" />
 		<ProjectReference Include="..\BlazorMachinePark.Services\BlazorMachinePark.Services.csproj" />
 		<ProjectReference Include="..\BlazorMachinePark.Shared\BlazorMachinePark.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="wwwroot\leaflet\images\layers-2x.png" />
+	  <_ContentIncludedByDefault Remove="wwwroot\leaflet\images\layers.png" />
+	  <_ContentIncludedByDefault Remove="wwwroot\leaflet\images\marker-icon-2x.png" />
+	  <_ContentIncludedByDefault Remove="wwwroot\leaflet\images\marker-icon.png" />
+	  <_ContentIncludedByDefault Remove="wwwroot\leaflet\images\marker-shadow.png" />
+	  <_ContentIncludedByDefault Remove="wwwroot\leaflet\leaflet.css" />
+	  <_ContentIncludedByDefault Remove="wwwroot\leaflet\leaflet.js" />
 	</ItemGroup>
 
 </Project>

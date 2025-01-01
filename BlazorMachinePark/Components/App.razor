@@ -2,22 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/" />
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="app.css" />
-    <link rel="stylesheet" href="BlazorMachinePark.styles.css" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="leaflet/leaflet.css" rel="stylesheet"/>
-    <HeadOutlet />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<base href="/" />
+	<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+	<link rel="stylesheet" href="app.css" />
+	<link rel="stylesheet" href="BlazorMachinePark.styles.css" />
+	<link rel="icon" type="image/png" href="favicon.png" />
+	@* <link href="leaflet/leaflet.css" rel="stylesheet"/> *@
+	<link href="_content/BlazorMachinePark.ComponentsLibrary/leaflet/leaflet.css" rel="stylesheet" /><link href="_content/BlazorMachinePark.ComponentsLibrary/leaflet/leaflet.css" rel="stylesheet" />
+
+	<HeadOutlet />
 </head>
 
 <body>
-    <Routes />
-    <script src="_framework/blazor.web.js"></script>
-    <script src="leaflet/leaflet.js"></script>
-    <script src="deliveryMap.js"></script>
+	<Routes />
+	<script src="_framework/blazor.web.js"></script>
+	@* <script src="leaflet/leaflet.js"></script> *@
+	@* <script src="deliveryMap.js"></script> *@
+	<script src="_content/BlazorMachinePark.ComponentsLibrary/leaflet/leaflet.js"></script>
+	<script src="_content/BlazorMachinePark.ComponentsLibrary/deliveryMap.js"></script>
 </body>
 
 </html>
