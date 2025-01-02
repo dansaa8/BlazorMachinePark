@@ -1,6 +1,8 @@
 @page "/MachineEdit/{MachineId:guid}"
+@using Microsoft.AspNetCore.Authorization
 
 @rendermode InteractiveServer
+@attribute [Authorize]
 @* <h3>MachineEdit</h3> *@
 
 @if (!Saved)

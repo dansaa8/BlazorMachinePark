@@ -1,8 +1,10 @@
 @page "/MachineAdd"
+@using Microsoft.AspNetCore.Authorization
 
 <h3>MachineAdd</h3>
 
 @rendermode InteractiveServer
+@attribute [Authorize]
 
 
 @if (!IsSubmitted)

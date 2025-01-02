@@ -1,9 +1,10 @@
 ﻿using BlazorMachinePark.Shared.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlazorMachinePark.Data.DbContexts
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -81,19 +82,22 @@ namespace BlazorMachinePark.Data.DbContexts
             var entries = ChangeTracker
                 .Entries()
                 .Where(e => e.Entity is ITimeStamped &&
-                    e.State == EntityState.Added || e.State == EntityState.Modified);
+                    (e.State == EntityState.Added || e.State == EntityState.Modified));
 
             foreach (var entityEntry in entries)
             {
                 var now = DateTime.UtcNow;
 
+                var timeStampedEntity = (ITimeStamped)entityEntry.Entity;
+
                 if (entityEntry.State == EntityState.Added)
                 {
-                    ((ITimeStamped)entityEntry.Entity).CreatedAt = now;
+                    timeStampedEntity.CreatedAt = now;
                 }
 
-                ((ITimeStamped)entityEntry.Entity).UpdatedAt = now;
+                timeStampedEntity.UpdatedAt = now;
             }
         }
+
     }
 }

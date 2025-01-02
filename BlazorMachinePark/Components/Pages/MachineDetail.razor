@@ -1,8 +1,10 @@
 @page "/MachineDetail/{MachineId:guid}"
+@using Microsoft.AspNetCore.Authorization
 
 <h3>MachineDetail</h3>
 
 @rendermode InteractiveServer
+@attribute [Authorize]
 
 <section class="machine-detail">
 	@if (Machine == null)
